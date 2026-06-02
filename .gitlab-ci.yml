@@ -1,0 +1,33 @@
+# AI News Curator — GitLab Pages CI/CD
+# Cada push al repo → build Next.js → deploy a GitLab Pages
+image: node:22-alpine
+
+stages:
+  - build
+  - deploy
+
+variables:
+  NEXT_TELEMETRY_DISABLED: 1
+
+build:
+  stage: build
+  script:
+    - npm ci --legacy-peer-deps
+    - npm run build
+  artifacts:
+    paths:
+      - out/
+    expire_in: 1 day
+  only:
+    - main
+
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp -r out/* public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

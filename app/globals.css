@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* AI News — link hover effects */
+.headline-link {
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.headline-link:hover {
+  border-bottom-color: #C4A962;
+}
+.source-link {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.source-link:hover {
+  border-bottom-color: #C4A962;
+}
+.image-link img {
+  transition: transform 0.3s ease;
+}
+.image-link:hover img {
+  transform: scale(1.03);
+}
+
+/* Sidebar responsive — desktop padding */
+@media (min-width: 768px) {
+  .main-content {
+    padding-right: 340px;
+  }
+}
